@@ -63,6 +63,14 @@
         <span asp-validation-for="Edited" class="text-danger"></span>
     </div>
 
+    
+    <!-- Lent (Optional) -->
+    <div class="form-group">
+        <label asp-for="LentTo"></label>
+        <input asp-for="LentTo" class="form-control" />
+        <span asp-validation-for="LentTo" class="text-danger"></span>
+    </div>
+    
     <!-- Copied To Plex -->
     <div class="form-group">
         <label asp-for="CopiedToPlex"></label>
@@ -72,13 +80,6 @@
             <option value="false">No</option>
         </select>
         <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
-    </div>
-
-    <!-- Lent (Optional) -->
-    <div class="form-group">
-        <label asp-for="LentTo"></label>
-        <input asp-for="LentTo" class="form-control" />
-        <span asp-validation-for="LentTo" class="text-danger"></span>
     </div>
 
     <!-- Notes (Optional, max 25 characters) -->

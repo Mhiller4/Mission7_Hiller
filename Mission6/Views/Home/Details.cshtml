@@ -10,16 +10,32 @@
     <h4>@Model.Title</h4>
     <hr />
     <dl class="row">
+
         <dt class="col-sm-2">Year</dt>
         <dd class="col-sm-10">@Model.Year</dd>
+
         <dt class="col-sm-2">Director</dt>
         <dd class="col-sm-10">@Model.Director</dd>
+
         <dt class="col-sm-2">Category</dt>
         <dd class="col-sm-10">@Model.Category?.CategoryName</dd>
+
         <dt class="col-sm-2">Rating</dt>
         <dd class="col-sm-10">@Model.Rating</dd>
-        <!-- Add more fields as necessary -->
+
+        <dt class="col-sm-2">Edited</dt>
+        <dd class="col-sm-10">@(Model.Edited ? "Yes" : "No")</dd>
+
+        <dt class="col-sm-2">Copied To Plex</dt>
+        <dd class="col-sm-10">@(Model.CopiedToPlex ? "Yes" : "No")</dd>
+
+        <dt class="col-sm-2">Lent To</dt>
+        <dd class="col-sm-10">@Model.LentTo</dd>
+
+        <dt class="col-sm-2">Notes</dt>
+        <dd class="col-sm-10">@Model.Notes</dd>
     </dl>
+
 </div>
 
 <p>

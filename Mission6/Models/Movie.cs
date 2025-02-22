@@ -8,12 +8,13 @@ namespace Mission6.Models
         [Key]
         public int MovieId { get; set; }
 
-        [Required]
+        
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
 
         // Navigation property; keeping the name as in your file
-        public Category Category { get; set; }
+        [ForeignKey("CategoryId")]
+        public Category? Category { get; set; }
         
         [Required]
         public string Title { get; set; }

@@ -31,21 +31,24 @@ namespace Mission6.Controllers
             return View();
         }
 
-        // POST: Home/Form (Process new movie)
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Form(Movie response)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Movies.Add(response);
-                _context.SaveChanges();
-                return RedirectToAction("MovieList");
+                var errors = string.Join("; ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage));
+                return Content("ModelState is invalid: " + errors);
             }
-            // If validation fails, repopulate the dropdown and show the form again.
-            ViewBag.CategoryList = new SelectList(_context.Categories, "CategoryId", "CategoryName");
-            return View(response);
+    
+            _context.Movies.Add(response);
+            _context.SaveChanges();
+            return RedirectToAction("MovieList");
         }
+      
 
         // GET: Home/GetToKnow (Informational)
         public IActionResult GetToKnow()
@@ -58,7 +61,7 @@ namespace Mission6.Controllers
         {
             var movies = _context.Movies
                 .Include(m => m.Category)
-                .Where(x => x.Director != null)
+                // .Where(x => x.Director != null)
                 .ToList();
             return View(movies);
         }
