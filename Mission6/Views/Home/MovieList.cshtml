@@ -1,0 +1,37 @@
+
+
+@model IEnumerable<Mission6.Models.Movie>
+
+@{
+    ViewBag.Title = "Movie List";
+}
+
+<h2>Movie List</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Director</th>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@movie.Title</td>
+            <td>@movie.Year</td>
+            <td>@movie.Director</td>
+            <td>@movie.Category?.CategoryName</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = movie.MovieId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = movie.MovieId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = movie.MovieId })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

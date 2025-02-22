@@ -1,0 +1,27 @@
+﻿@model Mission6.Models.Movie
+
+@{
+    ViewBag.Title = "Movie Details";
+}
+
+<h2>Movie Details</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Year</dt>
+        <dd class="col-sm-10">@Model.Year</dd>
+        <dt class="col-sm-2">Director</dt>
+        <dd class="col-sm-10">@Model.Director</dd>
+        <dt class="col-sm-2">Category</dt>
+        <dd class="col-sm-10">@Model.Category?.CategoryName</dd>
+        <dt class="col-sm-2">Rating</dt>
+        <dd class="col-sm-10">@Model.Rating</dd>
+        <!-- Add more fields as necessary -->
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "MovieList")
+</p>
